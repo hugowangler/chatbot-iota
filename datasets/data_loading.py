@@ -11,8 +11,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from nltk.corpus import stopwords
 from nltk import word_tokenize
 from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, recall_score, classification_report
+import os
 
-DATASET_PATH = "./datasets/amazon_cells_labelled.txt"
+#DATASET_PATH = "datasets/amazon_cells_labelled.txt"
+DATASET_PATH = os.path.abspath("./amazon_cells_labelled.txt")
 
 def preprocess_pandas(data, columns):
     df_ = pd.DataFrame(columns=columns)
@@ -31,8 +33,7 @@ def preprocess_pandas(data, columns):
         }, ignore_index=True)
     return data
 
-# If this is the primary file that is executed (ie not an import of another file)
-if __name__ == "__main__":
+def preprocess_amazon_data():
     # get data, pre-process and split
     data = pd.read_csv(DATASET_PATH, delimiter='\t', header=None)
     data.columns = ['Sentence', 'Class']
@@ -58,3 +59,7 @@ if __name__ == "__main__":
     train_y_tensor = torch.from_numpy(np.array(training_labels)).long()
     validation_x_tensor = torch.from_numpy(np.array(validation_data)).type(torch.FloatTensor)
     validation_y_tensor = torch.from_numpy(np.array(validation_labels)).long()
+
+# If this is the primary file that is executed (ie not an import of another file)
+if __name__ == "__main__":
+    preprocess_amazon_data()
