@@ -14,6 +14,16 @@ To activate the newly created environment run
 conda activate chatbot
 ```
 
+## Usage
+### CLI
+To start the CLI do the following
+
+- `cd` in to the project directory
+- run `python src/cli/cli.py`
+
+the CLI should now be running and you should start getting prompted about different subjects.
+
+
 ## Development
 ### Adding new dependencies to the conda environment
 Whenever a new dependency is needed in the project the conda enviornment file `chatbot.yml` has to be updated. This can be done (after you have installed the depencency yourself) by running
