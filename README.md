@@ -18,6 +18,7 @@ conda activate chatbot
 ### CLI
 To start the CLI do the following
 
+- make sure the conda environment is activated
 - `cd` in to the project directory
 - run `python src/cli/cli.py`
 
