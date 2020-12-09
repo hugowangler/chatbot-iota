@@ -9,6 +9,7 @@ sys.path.append(".")
 sys.path.append("..")
 
 from src.subjects import get_subject  # pylint: disable=E0401, C0413
+from src.model import Model
 
 
 def respond(subject: str, positive: bool):
@@ -37,6 +38,10 @@ def cli():
     )
 
     suffix = click.style(">>> ", bold=True, fg="bright_cyan")
+    model = Model(
+        "models/saved-models/ann-model-amazon.pth",
+        "models/saved-models/tfidf_features.pkl",
+    )
 
     try:
         # Continously asks questions about a subject until the user decides not
@@ -47,7 +52,7 @@ def cli():
             answer = click.prompt("", prompt_suffix=suffix).strip()
             if answer == "":
                 continue
-            prediction = False  # TODO: get prediction here (boolean)
+            prediction = model.predict(answer)
             click.echo(respond(subject, prediction) + "\n")
 
             click.confirm("Do you want to continue?", default=True, abort=True)
