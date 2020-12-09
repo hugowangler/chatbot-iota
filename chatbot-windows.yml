@@ -1,6 +1,7 @@
 name: chatbot-windows
 channels:
   - pytorch
+  - anaconda
   - conda-forge
   - https://conda.anaconda.org/conda-forge/
   - defaults
@@ -17,10 +18,11 @@ dependencies:
   - botocore=1.19.25=pyhd8ed1ab_0
   - brotlipy=0.7.0=py36hc753bc4_1001
   - bz2file=0.98=py_0
-  - ca-certificates=2020.11.8=h5b45459_0
-  - certifi=2020.11.8=py36ha15d459_0
+  - ca-certificates=2020.10.14=0
+  - certifi=2020.6.20=py36_0
   - cffi=1.14.4=py36he58ceb7_1
   - chardet=3.0.4=py36hd36e781_1008
+  - click=7.1.2=py_0
   - colorama=0.4.4=pyh9f0ad1d_0
   - console_shortcut=0.1.1=4
   - cpuonly=1.0=0
