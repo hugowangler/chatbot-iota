@@ -11,7 +11,7 @@ from torch import nn
 class ChatbotModel(nn.Module):
     """ The model of the chatbot """
 
-    def __init__(self, vocab_size=7305, vectorizer=None):
+    def __init__(self, vocab_size=6764, vectorizer=None):
         super().__init__()
         self.vectorizer = vectorizer
         self.network = nn.Sequential(
