@@ -15,14 +15,11 @@ class ChatbotModel(nn.Module):
         super().__init__()
         self.vectorizer = vectorizer
         self.network = nn.Sequential(
-            # input layer
-            nn.Linear(vocab_size, 250),
-            nn.ReLU(),
-            # hidden layer
-            nn.Linear(250, 30),
+            # Hidden layer
+            nn.Linear(vocab_size, 50),
             nn.ReLU(),
             # output layer
-            nn.Linear(30, 2),
+            nn.Linear(50, 2),
         )
 
     def forward(self, x):  # pylint: disable=C0103
